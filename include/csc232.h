@@ -66,15 +66,35 @@ double grades[ROSTER_SIZE];
 double gradeBook[NUM_COURSES][ROSTER_SIZE];
 
 int maxGrade(int num,const double arr[]);
-// TODO: 2.2 Declare function named as specified that specifies three parameters. The first parameter is an integer
-//  that corresponds to the number of rows in the given table, the second parameter is an integer that corresponds to
-//  the number of columns in the table, and the third parameter is for a two-dimensional array of double values.
+
  int indexOfMaxGrade (int row, int col, const double arr1[][ROSTER_SIZE]);
 
-// TODO: 3.1 - Implement the specified function below
+int maxGrade(int num,const double arr[])
+{
+    int maxg = 0; 
+    for (int i =0; i<num; i++)
+    {
+        if (arr[i] > arr[maxg]) maxg = i; 
+    }
+    return arr[maxg]; 
+}
 
+int indexOfMaxGrade (int row, int col, const double arr1[][ROSTER_SIZE])
+{
+    int maxrow =0;
+    int maxcol =0;
 
-// TODO: 3.2 Implement the specified function below
-
-
+    for (int i=0; i<row; i++)
+    {
+        for ( int j=0; j<col; j++)
+        {
+            if (arr1[i][j] > arr1[maxrow][maxcol])
+            {
+                maxrow = i;
+                maxcol = j;
+            }
+        }
+    }
+    return maxrow; 
+}
 #endif // MSU_CSC232_H_
